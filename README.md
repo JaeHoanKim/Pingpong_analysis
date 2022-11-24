@@ -14,19 +14,19 @@ In *image_process.py*, the illustration of each code blocks were provided. The f
 
 <center>
 
-![](Figures/1_WindowSettingManual.png) 
+![](Figures/1_WindowSettingManual.png#center)
 
 *Figure 1. Initial / final frame of interest in the original video*
 
-![](Figures/2_VarOfPixels.png) 
+![](Figures/2_VarOfPixels.png#center)
 
 *Figure 2. The visualization of the variance in pixels along the time (gray image)*
 
-![](Figures/3_BallLocation.png) 
+![](Figures/3_BallLocation.png#center)
 
 *Figure 3. The location of the ping-pong ball at a specific frame & original image*
 
-![](Figures/4_ExactBallLocation.png) 
+![](Figures/4_ExactBallLocation.png#center)
 
 *Figure 4. Extracted contours and selected the contour of the ball*
 
@@ -42,4 +42,4 @@ Along the code, there are several features which require manual settings.
 
 -   Threshold values (optional) : Depending on the video and purpose, threshold values should be adjusted. Usually, for the fixed experiment situation (fixed background, fixed objects), one or two adjustments would be sufficient.
 
-- Before processing, don't forget to check whether the working directory is set properly.
+-   Before processing, don't forget to check whether the working directory is set properly.
