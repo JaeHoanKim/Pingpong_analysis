@@ -14,16 +14,20 @@ In *image_process.py*, the illustration of each code blocks were provided. The f
 
 <center>
 
-![](Figures/1_WindowSettingManual.png)
+![](Figures/1_WindowSettingManual.png) 
+
 *Figure 1. Initial / final frame of interest in the original video*
 
-![](Figures/2_VarOfPixels.png)
+![](Figures/2_VarOfPixels.png) 
+
 *Figure 2. The visualization of the variance in pixels along the time (gray)*
 
-![](Figures/3_BallLocation.png)
-*Figure 3. The location of the pingpong ball at a specific frame*
+![](Figures/3_BallLocation.png) 
 
-![](Figures/4_ExactBallLocation.png)
+*Figure 3. The location of the ping-pong ball at a specific frame*
+
+![](Figures/4_ExactBallLocation.png) 
+
 *Figure 4. Extracted contours*
 
 </center>
