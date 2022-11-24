@@ -96,6 +96,9 @@ for  i in range(index[0].shape[0]):
     check_path[index[0][i], index[1][i]] = 255
 plt.imshow(check_path, cmap = 'gray')
 
+# plt.subplot(121);plt.imshow(ball_gray, cmap='gray')
+# plt.subplot(122);plt.imshow(check_path, cmap = 'gray')
+
 ############################################################################
 #%% 6. thresholding 2 - to extract ball location using color information ###
 ############################################################################
@@ -121,6 +124,10 @@ plt.imshow(ball_thres, cmap = 'gray')
 ####################################################
 
 plt.imshow(cv2.cvtColor(frame_test, cv2.COLOR_BGR2RGB))
+
+# plt.subplot(121);plt.imshow(ball_thres, cmap = 'gray')
+# plt.subplot(122);plt.imshow(cv2.cvtColor(frame_test, cv2.COLOR_BGR2RGB))
+
 
 #####################################################################
 #%% 7. find contour and extract the exact center of pingpong ball ###
@@ -187,6 +194,9 @@ if cnt >= 2 or cnt ==0:
 
 cv2.drawContours(frame_test, contours = possible_contours[0]['contour'], contourIdx=-1, color=(255, 0, 255), thickness = 5)
 plt.imshow(cv2.cvtColor(frame_test, cv2.COLOR_BGR2RGB))
+
+plt.subplot(121);plt.imshow(cv2.cvtColor(frame_with_ctr, cv2.COLOR_BGR2RGB))
+plt.subplot(122);plt.imshow(cv2.cvtColor(frame_test, cv2.COLOR_BGR2RGB))
 #%%
 x_fin = possible_contours[0]['cx']
 y_fin = possible_contours[0]['cy']

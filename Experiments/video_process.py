@@ -4,7 +4,10 @@ Created on Wed Apr 27 12:08:26 2022
 
 @author: JaeHoanKim
 """
-#%%
+##########################
+#%% 1. Importing video ###
+##########################
+
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
@@ -15,23 +18,28 @@ fname = 'IMG_3384'
 vidname = 'videos/'+ fname +'.MOV'
 cap = cv2.VideoCapture(vidname)
 cnt = 1
-while cap.isOpened(): # 동영상 파일이 올바르게 열렸는지
-    ret, frame = cap.read() # ret: 성공 여부, frame: 받아온 이미지(프레임)
+while cap.isOpened(): # check whether the video is imported properly
+    ret, frame = cap.read() # ret: TRUE until all frames is shown, frame: imported image at certain frame
     cnt = cnt + 1
     if not ret:
-        print('더 이상 가져올 프레임이 없습니다.')
+        print('No more frame to show.')
         break
     frame_resized = cv2.resize(frame, (frame.shape[1], frame.shape[0]))
     cv2.imshow('vid2', frame_resized)
-    if cv2.waitKey(1) == ord('q'):
+    if cv2.waitKey(1) == ord('q'): # when the button q is pressed
         break
-cv2.destroyAllWindows() # 모든 창 닫기
+cv2.destroyAllWindows() # close all the windows
 
-#%%
-frame_start = 845 # 사람에서 떠나는 시점
+################################################
+#%% 2. Assign the frame in interest manually ###
+################################################
+
+frame_start = 845
 frame_end = 927
 fps = 240
-#%%
+################################################
+#%% 3. Assign the window in interest manually ###
+#################################################
 cap = cv2.VideoCapture(vidname)
 frames_border = []
 for i in [frame_start, frame_end]:
@@ -41,10 +49,9 @@ for i in [frame_start, frame_end]:
 plt.close();plt.figure()
 plt.subplot(211);plt.imshow(frames_border[0])
 plt.subplot(212);plt.imshow(frames_border[1])
-#%%
+#%% 
 xmin, xmax = 600, 1400
 ymin, ymax = 0,750
-#%% 좀 걸리는 부분
 cap = cv2.VideoCapture(vidname)
 frames = []
 for i in range(frame_start, frame_end):
@@ -93,9 +100,6 @@ for frame_test in frames:
         method=cv2.CHAIN_APPROX_SIMPLE
     )
     frame_with_ctr = frame_test.copy()
-    #cv2.drawContours(frame_with_ctr, contours=contours, contourIdx=-1, color=(0, 255, 255))
-    #cv2.imshow('img', frame_with_ctr)
-    #cv2.waitKey(0)
     contours_dict = []
     for contour in contours:
         x, y, w, h = cv2.boundingRect(contour)
@@ -110,7 +114,6 @@ for frame_test in frames:
             'cx': x + (w / 2),
             'cy': y + (h / 2)
         })
-    #plt.imshow(frame_with_ctr)
     cv2.waitKey(0)
     MIN_WIDTH, MIN_HEIGHT = 18, 18
     MAX_WIDTH, MAX_HEIGHT = 60, 60
