@@ -24,7 +24,6 @@ In *image_process.py*, the illustration of each code blocks were provided. The f
 
 ![Figure 6. Extracted contours](Figures/5_ContourBall.png){alt="Figure 6. Extracted contours" width="300"}![Figure 7. Final contour](Figures/7_ExactContour.png){width="300"}
 
-
 ## Notes
 
 Along the code, there are several features which require manual settings.
